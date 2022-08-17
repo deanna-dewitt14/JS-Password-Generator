@@ -3,6 +3,13 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {   
   console.log("hey! you clicked the button")
+  var password = "";
+  for(var i = 0; i < characterLength; i++) {
+      var randomIndex = Math.floor(Math.random() * choiceArr.length);
+      password = password + choiceArr [randomIndex];
+    }
+    return password; //4. Display generated password on the page. 
+  }
 
   //1. Prompt the user for the password criteria
   //     a. Password Length 8 < 128
@@ -18,10 +25,9 @@ function generatePassword() {
   //2. Validate the input
   //3. generate password based on criteria. 
 
-//4. Display generated password on the page. 
-  return "Generated password will go here!";
-}
 function getPrompts(){
+  choiceArr = [];
+
   characterLength = parseInt(prompt("How many characters do you want your password to be? (8 - 128 characters")); //NaN
 
   if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) { //hoping this will all be false
@@ -45,11 +51,19 @@ function getPrompts(){
 
 // Write password to the #password input
 function writePassword() {
+  var correctPrompts = getPrompts(); //returns true or false
+
+  if (correctPrompts) {
+    var newPassword = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = newPassword;
+  }
+}
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
