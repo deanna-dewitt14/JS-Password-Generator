@@ -13,6 +13,8 @@ Please follow the following instructions to show you how to use the program!
 
 You should now see your generated password!
 
+https://deanna-dewitt14.github.io/JS-Password-Generator/
+
 Enjoy!
 
 <img width="1440" alt="JS-Pass-Gen-1" src="https://user-images.githubusercontent.com/109932251/185032133-32a19319-ca5e-4b48-ba91-dc07ea0dce14.png">
